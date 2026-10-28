@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Polar Pine Apps</title>
+<meta name="description" content="Small apps and games made at home in Finland.">
+<link rel="stylesheet" href="style.css">
+<script>
+(function () {
+  var d = document.documentElement;
+  var p = new URLSearchParams(location.search).get('lang');
+  var l = (p === 'fi' || p === 'en') ? p : ((navigator.language || '').toLowerCase().indexOf('fi') === 0 ? 'fi' : 'en');
+  function set(v) { d.setAttribute('data-lang', v); d.lang = v; }
+  set(l);
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-set-lang]');
+    if (b) { set(b.getAttribute('data-set-lang')); return; }
+    var a = e.target.closest('a[data-keep-lang]');
+    if (a) { e.preventDefault(); location.href = a.getAttribute('href') + '?lang=' + d.getAttribute('data-lang'); }
+  });
+})();
+</script>
+</head>
+<body>
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="./">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 2l7 9h-4l6 8h-4l6 8H5l6-8H7l6-8H9z"/><rect x="14.5" y="27" width="3" height="4" fill="currentColor"/></svg>
+      Polar Pine Apps
+    </a>
+    <div class="langs"><button data-set-lang="en">EN</button><button data-set-lang="fi">FI</button></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1 class="en">Small apps and games, made at home in Finland.</h1>
+  <h1 class="fi">Pieniä sovelluksia ja pelejä, tehty kotona Suomessa.</h1>
+  <p class="lead en">Polar Pine Apps is the name we use for the apps and games we build as a family.</p>
+  <p class="lead fi">Polar Pine Apps on nimi, jolla julkaisemme perheenä tekemiämme sovelluksia ja pelejä.</p>
+
+  <h2><span class="en">Our apps</span><span class="fi">Sovelluksemme</span></h2>
+  <a class="card" href="pupsan-joulu/" data-keep-lang>
+    <h3>Pupsan Joulu</h3>
+    <p class="en">A Christmas jumping game for iPhone and Mac. Help Pupsa the bunny find Santa's runaway reindeer before Christmas Eve, then build and decorate your own cabin in the village.</p>
+    <p class="fi">Joulun hyppelypeli iPhonelle ja Macille. Auta Pupsa-pupua löytämään joulupukin karanneet porot ennen jouluaattoa ja rakenna oma mökki joulukylään.</p>
+    <div class="tags"><span class="en">Support &amp; privacy →</span><span class="fi">Tuki ja tietosuoja →</span></div>
+  </a>
+
+  <h2><span class="en">Contact</span><span class="fi">Yhteystiedot</span></h2>
+  <div class="contact">
+    <strong><a href="mailto:polarpineapps@gmail.com">polarpineapps@gmail.com</a></strong>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Polar Pine Apps</span>
+  </div>
+</footer>
+</body>
+</html>

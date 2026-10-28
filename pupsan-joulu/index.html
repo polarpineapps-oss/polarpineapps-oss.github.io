@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pupsan Joulu Support</title>
+<meta name="description" content="Support for Pupsan Joulu, a Christmas jumping game for iPhone and Mac.">
+<link rel="stylesheet" href="../style.css">
+<script>
+(function () {
+  var d = document.documentElement;
+  var p = new URLSearchParams(location.search).get('lang');
+  var l = (p === 'fi' || p === 'en') ? p : ((navigator.language || '').toLowerCase().indexOf('fi') === 0 ? 'fi' : 'en');
+  function set(v) { d.setAttribute('data-lang', v); d.lang = v; }
+  set(l);
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-set-lang]');
+    if (b) { set(b.getAttribute('data-set-lang')); return; }
+    var a = e.target.closest('a[data-keep-lang]');
+    if (a) { e.preventDefault(); location.href = a.getAttribute('href') + '?lang=' + d.getAttribute('data-lang'); }
+  });
+})();
+</script>
+</head>
+<body>
+<header class="site">
+  <div class="wrap bar">
+    <a class="brand" href="../" data-keep-lang>
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 2l7 9h-4l6 8h-4l6 8H5l6-8H7l6-8H9z"/><rect x="14.5" y="27" width="3" height="4" fill="currentColor"/></svg>
+      Polar Pine Apps
+    </a>
+    <div class="langs"><button data-set-lang="en">EN</button><button data-set-lang="fi">FI</button></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <h1>Pupsan Joulu</h1>
+
+  <!-- ENGLISH -->
+  <div class="en">
+    <p class="lead">A Christmas jumping game for iPhone and Mac. Help Pupsa the bunny find Santa's runaway reindeer before Christmas Eve, then build and decorate your own cabin in the village.</p>
+
+    <h2>Contact support</h2>
+    <div class="contact">
+      <strong><a href="mailto:polarpineapps@gmail.com?subject=Pupsan%20Joulu%20support">polarpineapps@gmail.com</a></strong>
+      <p>We're a small family team and usually reply within a few days. To help us sort things out faster, please tell us your device (for example iPhone 15 or MacBook Air), your iOS or macOS version and what happened.</p>
+    </div>
+
+    <h2>Frequently asked questions</h2>
+
+    <h3>I bought something but didn't get it.</h3>
+    <p>Make sure you're signed in with the same Apple Account you used for the purchase, then use <em>Restore purchases</em> in the game's settings. If the item is still missing, email us and tell us the purchase date.</p>
+
+    <h3>How do I get a refund?</h3>
+    <p>Purchases are handled by Apple, so refunds are requested from Apple at <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</p>
+
+    <h3>How do I delete my data?</h3>
+    <p>Open the game's settings and choose the option to delete your data. This removes your online profile, bunny, cabin and village membership from our server. You can also email us and we'll do it for you.</p>
+
+    <h3>Someone in my village is behaving badly.</h3>
+    <p>Tap the player in the village and choose <em>Report</em> or <em>Block</em>. Blocked players' bunnies, cabins and messages are hidden from you. The village creator can also remove members. You can always email us too, with the village and player name.</p>
+
+    <h3>How do I join a village?</h3>
+    <p>Villages are joined with a village code. Ask the friend or family member who created the village to share the code with you.</p>
+
+    <h3>Is the game suitable for children?</h3>
+    <p>Pupsan Joulu is made for players aged 9 and up. There is no free chat: players can only send ready-made greetings and gifts, profile names are filtered and can't contain numbers, and villages can only be joined with a code. Read more in our <a href="privacy.html" data-keep-lang>privacy policy</a>.</p>
+
+    <h3>My progress disappeared.</h3>
+    <p>Email us with your device, system version and roughly when it happened, and we'll look into it.</p>
+  </div>
+
+  <!-- SUOMI -->
+  <div class="fi">
+    <p class="lead">Joulun hyppelypeli iPhonelle ja Macille. Auta Pupsa-pupua löytämään joulupukin karanneet porot ennen jouluaattoa ja rakenna oma mökki joulukylään.</p>
+
+    <h2>Ota yhteyttä</h2>
+    <div class="contact">
+      <strong><a href="mailto:polarpineapps@gmail.com?subject=Pupsan%20Joulu%20tuki">polarpineapps@gmail.com</a></strong>
+      <p>Olemme pieni perhetiimi ja vastaamme yleensä muutaman päivän sisällä. Kerro viestissä laitteesi (esim. iPhone 15 tai MacBook Air), iOS- tai macOS-versio ja mitä tapahtui, niin pääsemme asiaan nopeammin kiinni.</p>
+    </div>
+
+    <h2>Usein kysyttyä</h2>
+
+    <h3>Ostin jotain, mutta en saanut sitä.</h3>
+    <p>Varmista, että olet kirjautunut samalla Apple-tilillä, jolla teit oston, ja valitse pelin asetuksista <em>Palauta ostot</em>. Jos tuote puuttuu edelleen, lähetä meille sähköpostia ja kerro oston päivämäärä.</p>
+
+    <h3>Miten saan rahat takaisin?</h3>
+    <p>Ostot käsittelee Apple, joten hyvitystä pyydetään Applelta osoitteessa <a href="https://reportaproblem.apple.com">reportaproblem.apple.com</a>.</p>
+
+    <h3>Miten poistan tietoni?</h3>
+    <p>Avaa pelin asetukset ja valitse tietojen poisto. Se poistaa palvelimeltamme verkkoprofiilisi, pupusi, mökkisi ja kyläjäsenyytesi. Voit myös lähettää meille sähköpostia, niin poistamme tiedot puolestasi.</p>
+
+    <h3>Joku kylässä käyttäytyy asiattomasti.</h3>
+    <p>Napauta pelaajaa kylässä ja valitse <em>Ilmianna</em> tai <em>Estä</em>. Estetyn pelaajan pupu, mökki ja viestit piilotetaan sinulta. Kylän perustaja voi myös poistaa jäseniä. Voit aina myös lähettää meille sähköpostia ja kertoa kylän ja pelaajan nimen.</p>
+
+    <h3>Miten liityn kylään?</h3>
+    <p>Kyliin liitytään kyläkoodilla. Pyydä kylän perustanutta kaveria tai perheenjäsentä jakamaan koodi sinulle.</p>
+
+    <h3>Sopiiko peli lapsille?</h3>
+    <p>Pupsan Joulu on tehty 9-vuotiaille ja sitä vanhemmille. Pelissä ei ole vapaata chattia: pelaajat voivat lähettää vain valmiita tervehdyksiä ja lahjoja, profiilinimet suodatetaan eikä niissä voi olla numeroita, ja kyliin pääsee vain koodilla. Lue lisää <a href="privacy.html" data-keep-lang>tietosuojaselosteesta</a>.</p>
+
+    <h3>Edistymiseni katosi.</h3>
+    <p>Lähetä meille sähköpostia ja kerro laitteesi, järjestelmäversio ja suunnilleen milloin tämä tapahtui, niin selvitämme asian.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Polar Pine Apps</span>
+    <a href="privacy.html" data-keep-lang><span class="en">Privacy policy</span><span class="fi">Tietosuojaseloste</span></a>
+  </div>
+</footer>
+</body>
+</html>
