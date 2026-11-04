@@ -2,16 +2,30 @@
 <html lang="en" data-lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Polar Pine Apps</title>
-<meta name="description" content="Small apps and games made at home in Finland.">
+<meta name="description" content="Polar Pine Apps makes games and apps at home in Finland. Our first game is Pupsa's Christmas for iPhone and Mac.">
+<meta name="theme-color" content="#0D1B3D">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Polar Pine Apps">
+<meta property="og:description" content="Games and apps, made at home in Finland.">
+<meta property="og:url" content="https://polarpineapps-oss.github.io/">
+<meta property="og:image" content="https://polarpineapps-oss.github.io/assets/jako.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/polarpineapps-merkki.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-64.png" sizes="64x64" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/poppins-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/grandstander-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="assets/etusivu.css">
 <script>
 (function () {
   var d = document.documentElement;
+  d.classList.add('js');
   var p = new URLSearchParams(location.search).get('lang');
   var l = (p === 'fi' || p === 'en') ? p : ((navigator.language || '').toLowerCase().indexOf('fi') === 0 ? 'fi' : 'en');
-  function set(v) { d.setAttribute('data-lang', v); d.lang = v; }
+  function set(v) { d.setAttribute('data-lang', v); d.lang = v; document.dispatchEvent(new CustomEvent('kieli')); }
   set(l);
   document.addEventListener('click', function (e) {
     var b = e.target.closest('[data-set-lang]');
@@ -22,41 +36,206 @@
 })();
 </script>
 </head>
-<body>
-<header class="site">
-  <div class="wrap bar">
-    <a class="brand" href="./">
-      <svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 2l7 9h-4l6 8h-4l6 8H5l6-8H7l6-8H9z"/><rect x="14.5" y="27" width="3" height="4" fill="currentColor"/></svg>
-      Polar Pine Apps
-    </a>
-    <div class="langs"><button data-set-lang="en">EN</button><button data-set-lang="fi">FI</button></div>
-  </div>
+<body class="etusivu">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><symbol id="kuusi0" viewBox="0 0 100 200"><path d="M46 170h8v30h-8z" fill="currentColor"/><path d="M50 6Q57 38 68 64Q58 56 50 61Q42 56 32 64Q43 38 50 6ZM50 61Q63 100 83 132Q65 120 50 127Q35 120 17 132Q37 100 50 61ZM50 115Q69 161 98 199Q72 183 50 194Q28 183 2 199Q31 161 50 115Z" fill="currentColor"/><path style="fill:var(--lumi-vari)" d="M50 6Q55 21 58 30Q54 23 50 33Q46 23 42 30Q45 21 50 6ZM50 61Q59 78 65 90Q57 83 50 93Q43 83 35 90Q41 78 50 61ZM50 115Q62 136 72 150Q60 143 50 153Q40 143 28 150Q38 136 50 115Z"/></symbol><symbol id="kuusi1" viewBox="0 0 100 200"><path d="M46 170h8v30h-8z" fill="currentColor"/><path d="M50 6Q57 38 68 64Q58 56 50 61Q42 56 32 64Q43 38 50 6ZM50 42Q61 79 78 109Q63 98 50 105Q37 98 22 109Q39 79 50 42ZM50 79Q65 120 88 154Q67 141 50 149Q33 141 12 154Q35 120 50 79ZM50 115Q69 161 98 199Q72 183 50 194Q28 183 2 199Q31 161 50 115Z" fill="currentColor"/><path style="fill:var(--lumi-vari)" d="M50 6Q55 21 58 30Q54 23 50 33Q46 23 42 30Q45 21 50 6ZM50 42Q57 59 63 70Q56 63 50 73Q44 63 37 70Q43 59 50 42ZM50 79Q60 98 67 110Q58 103 50 113Q42 103 33 110Q40 98 50 79ZM50 115Q62 136 72 150Q60 143 50 153Q40 143 28 150Q38 136 50 115Z"/></symbol><symbol id="kuusi2" viewBox="0 0 100 200"><path d="M46 170h8v30h-8z" fill="currentColor"/><path d="M50 6Q57 38 68 64Q58 56 50 61Q42 56 32 64Q43 38 50 6ZM50 33Q60 69 76 98Q61 88 50 94Q39 88 24 98Q40 69 50 33ZM50 61Q63 100 83 132Q65 120 50 127Q35 120 17 132Q37 100 50 61ZM50 88Q66 131 90 165Q68 151 50 160Q32 151 10 165Q34 131 50 88ZM50 115Q69 161 98 199Q72 183 50 194Q28 183 2 199Q31 161 50 115Z" fill="currentColor"/><path style="fill:var(--lumi-vari)" d="M50 6Q55 21 58 30Q54 23 50 33Q46 23 42 30Q45 21 50 6ZM50 33Q57 50 62 60Q55 53 50 63Q45 53 38 60Q43 50 50 33ZM50 61Q59 78 65 90Q57 83 50 93Q43 83 35 90Q41 78 50 61ZM50 88Q61 107 69 120Q58 113 50 123Q42 113 31 120Q39 107 50 88ZM50 115Q62 136 72 150Q60 143 50 153Q40 143 28 150Q38 136 50 115Z"/></symbol></defs></svg>
+<canvas id="taivas" aria-hidden="true"></canvas>
+<canvas id="lumi" aria-hidden="true"></canvas>
+
+<header class="yla">
+  <a class="brand" href="./" aria-label="Polar Pine Apps">
+    <img src="assets/polarpineapps-merkki.svg" alt="" width="40" height="40">
+    <span>Polar Pine Apps</span>
+  </a>
+  <nav aria-label="Main">
+    <a href="#pupsan-joulu"><span class="fi">Pelit</span><span class="en">Games</span></a>
+    <a href="#studio">Studio</a>
+    <a href="#yhteys"><span class="fi">Yhteystiedot</span><span class="en">Contact</span></a>
+  </nav>
+  <div class="langs" role="group" aria-label="Language / Kieli"><button data-set-lang="en">EN</button><button data-set-lang="fi">FI</button></div>
 </header>
 
-<main class="wrap">
-  <h1 class="en">Small apps and games, made at home in Finland.</h1>
-  <h1 class="fi">Pieniä sovelluksia ja pelejä, tehty kotona Suomessa.</h1>
-  <p class="lead en">Polar Pine Apps is the name we use for the apps and games we build as a family.</p>
-  <p class="lead fi">Polar Pine Apps on nimi, jolla julkaisemme perheenä tekemiämme sovelluksia ja pelejä.</p>
-
-  <h2><span class="en">Our apps</span><span class="fi">Sovelluksemme</span></h2>
-  <a class="card" href="pupsan-joulu/" data-keep-lang>
-    <h3>Pupsan Joulu</h3>
-    <p class="en">A Christmas jumping game for iPhone and Mac. Help Pupsa the bunny find Santa's runaway reindeer before Christmas Eve, then build and decorate your own cabin in the village.</p>
-    <p class="fi">Joulun hyppelypeli iPhonelle ja Macille. Auta Pupsa-pupua löytämään joulupukin karanneet porot ennen jouluaattoa ja rakenna oma mökki joulukylään.</p>
-    <div class="tags"><span class="en">Support &amp; privacy →</span><span class="fi">Tuki ja tietosuoja →</span></div>
-  </a>
-
-  <h2><span class="en">Contact</span><span class="fi">Yhteystiedot</span></h2>
-  <div class="contact">
-    <strong><a href="mailto:polarpineapps@gmail.com">polarpineapps@gmail.com</a></strong>
+<main>
+<section class="sankari" aria-labelledby="otsikko">
+  <div class="sankari-kiinni">
+    <svg class="harjanne kauko" viewBox="0 0 2000 520" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false"><path d="M0 520L0 356L0 356L50 358L100 358L150 349L200 331L250 312L300 305L350 316L400 340L450 365L500 379L550 379L600 373L650 371L700 378L750 388L800 390L850 379L900 354L950 327L1000 312L1050 313L1100 326L1150 341L1200 347L1250 345L1300 344L1350 352L1400 371L1450 393L1500 405L1550 400L1600 380L1650 357L1700 341L1750 338L1800 341L1850 342L1900 334L1950 321L2000 313L2000 520Z" fill="currentColor"/><use href="#kuusi0" x="-38" y="251" width="57" height="113"/><use href="#kuusi0" x="-14" y="224" width="70" height="141"/><use href="#kuusi0" x="20" y="263" width="51" height="103"/><use href="#kuusi2" x="52" y="248" width="59" height="118"/><use href="#kuusi0" x="75" y="251" width="57" height="114"/><use href="#kuusi0" x="114" y="234" width="62" height="124"/><use href="#kuusi1" x="118" y="220" width="68" height="137"/><use href="#kuusi1" x="254" y="206" width="55" height="110"/><use href="#kuusi1" x="309" y="212" width="55" height="110"/><use href="#kuusi0" x="314" y="188" width="68" height="135"/><use href="#kuusi2" x="404" y="264" width="49" height="98"/><use href="#kuusi0" x="430" y="278" width="48" height="96"/><use href="#kuusi1" x="498" y="269" width="59" height="118"/><use href="#kuusi2" x="524" y="286" width="50" height="101"/><use href="#kuusi2" x="554" y="282" width="51" height="101"/><use href="#kuusi2" x="578" y="280" width="51" height="101"/><use href="#kuusi1" x="743" y="261" width="68" height="136"/><use href="#kuusi0" x="827" y="254" width="64" height="129"/><use href="#kuusi0" x="865" y="252" width="57" height="114"/><use href="#kuusi2" x="884" y="268" width="45" height="90"/><use href="#kuusi0" x="883" y="248" width="54" height="108"/><use href="#kuusi1" x="954" y="223" width="51" height="103"/><use href="#kuusi2" x="959" y="171" width="75" height="150"/><use href="#kuusi0" x="972" y="191" width="64" height="129"/><use href="#kuusi0" x="996" y="228" width="46" height="93"/><use href="#kuusi1" x="1012" y="218" width="51" height="103"/><use href="#kuusi2" x="1079" y="244" width="45" height="91"/><use href="#kuusi1" x="1131" y="240" width="55" height="110"/><use href="#kuusi0" x="1187" y="241" width="57" height="113"/><use href="#kuusi2" x="1221" y="258" width="48" height="95"/><use href="#kuusi0" x="1234" y="224" width="64" height="128"/><use href="#kuusi1" x="1262" y="226" width="63" height="126"/><use href="#kuusi0" x="1280" y="226" width="64" height="127"/><use href="#kuusi1" x="1338" y="222" width="74" height="148"/><use href="#kuusi0" x="1369" y="241" width="70" height="140"/><use href="#kuusi0" x="1488" y="269" width="71" height="142"/><use href="#kuusi1" x="1546" y="270" width="64" height="128"/><use href="#kuusi2" x="1576" y="238" width="72" height="145"/><use href="#kuusi0" x="1648" y="252" width="52" height="105"/><use href="#kuusi2" x="1654" y="256" width="50" height="100"/><use href="#kuusi0" x="1650" y="207" width="73" height="146"/><use href="#kuusi1" x="1813" y="219" width="66" height="131"/><use href="#kuusi2" x="1892" y="192" width="71" height="143"/><use href="#kuusi0" x="1940" y="232" width="47" height="95"/><use href="#kuusi0" x="1967" y="227" width="48" height="96"/><use href="#kuusi1" x="1965" y="201" width="60" height="121"/></svg>
+    <div class="sankari-sisus">
+      <img class="sankari-merkki" src="assets/polarpineapps-merkki.svg" alt="" width="220" height="220">
+      <h1 id="otsikko" aria-label="Polar Pine Apps"><span class="sanamerkki"><svg class="sm sm-a" style="--o:68.537%" viewBox="-4 -160 1011 224" aria-hidden="true" focusable="false"><path class="kirjain" style="--i:0" d="M81 -113.2Q94.8 -113.2 106 -106.2Q117.2 -99.2 123.7 -86.2Q130.2 -73.2 130.2 -56Q130.2 -38.8 123.7 -25.7Q117.2 -12.6 106 -5.5Q94.8 1.6 81 1.6Q69.4 1.6 60.5 -3.2Q51.6 -8 46.6 -15.6V53.2H12.4V-111.6H46.6V-95.8Q51.6 -103.6 60.4 -108.4Q69.2 -113.2 81 -113.2ZM70.8 -83.4Q60.6 -83.4 53.5 -76Q46.4 -68.6 46.4 -55.8Q46.4 -43 53.5 -35.6Q60.6 -28.2 70.8 -28.2Q81 -28.2 88.2 -35.7Q95.4 -43.2 95.4 -56Q95.4 -68.8 88.3 -76.1Q81.2 -83.4 70.8 -83.4Z"/><path class="kirjain" style="--i:1" d="M137.4 -55.8Q137.4 -73 145 -86.1Q152.6 -99.2 165.8 -106.2Q179 -113.2 195.4 -113.2Q211.8 -113.2 225 -106.2Q238.2 -99.2 245.8 -86.1Q253.4 -73 253.4 -55.8Q253.4 -38.6 245.7 -25.5Q238 -12.4 224.7 -5.4Q211.4 1.6 195 1.6Q178.6 1.6 165.5 -5.4Q152.4 -12.4 144.9 -25.4Q137.4 -38.4 137.4 -55.8ZM218.6 -55.8Q218.6 -69.2 211.9 -76.4Q205.2 -83.6 195.4 -83.6Q185.4 -83.6 178.8 -76.5Q172.2 -69.4 172.2 -55.8Q172.2 -42.4 178.7 -35.2Q185.2 -28 195 -28Q204.8 -28 211.7 -35.2Q218.6 -42.4 218.6 -55.8Z"/><path class="kirjain" style="--i:2" d="M301.8 -148V0H267.6V-148Z"/><path class="kirjain" style="--i:3" d="M365 -113.2Q376.8 -113.2 385.7 -108.4Q394.6 -103.6 399.4 -95.8V-111.6H433.6V0H399.4V-15.8Q394.4 -8 385.5 -3.2Q376.6 1.6 364.8 1.6Q351.2 1.6 340 -5.5Q328.8 -12.6 322.3 -25.7Q315.8 -38.8 315.8 -56Q315.8 -73.2 322.3 -86.2Q328.8 -99.2 340 -106.2Q351.2 -113.2 365 -113.2ZM375 -83.4Q364.8 -83.4 357.7 -76.1Q350.6 -68.8 350.6 -56Q350.6 -43.2 357.7 -35.7Q364.8 -28.2 375 -28.2Q385.2 -28.2 392.3 -35.6Q399.4 -43 399.4 -55.8Q399.4 -68.6 392.3 -76Q385.2 -83.4 375 -83.4Z"/><path class="kirjain" style="--i:4" d="M523.6 -112.8V-76.6H514.2Q501.4 -76.6 495 -71.1Q488.6 -65.6 488.6 -51.8V0H454.4V-111.6H488.6V-93Q494.6 -102.2 503.6 -107.5Q512.6 -112.8 523.6 -112.8Z"/><path class="kirjain" style="--i:5" d="M604.6 -113.2Q618.4 -113.2 629.6 -106.2Q640.8 -99.2 647.3 -86.2Q653.8 -73.2 653.8 -56Q653.8 -38.8 647.3 -25.7Q640.8 -12.6 629.6 -5.5Q618.4 1.6 604.6 1.6Q593 1.6 584.1 -3.2Q575.2 -8 570.2 -15.6V53.2H536V-111.6H570.2V-95.8Q575.2 -103.6 584 -108.4Q592.8 -113.2 604.6 -113.2ZM594.4 -83.4Q584.2 -83.4 577.1 -76Q570 -68.6 570 -55.8Q570 -43 577.1 -35.6Q584.2 -28.2 594.4 -28.2Q604.6 -28.2 611.8 -35.7Q619 -43.2 619 -56Q619 -68.8 611.9 -76.1Q604.8 -83.4 594.4 -83.4Z"/><path class="kirjain" style="--i:6" d="M664.6 -141.6Q664.6 -149.6 670.3 -154.9Q676 -160.2 685 -160.2Q693.8 -160.2 699.5 -154.9Q705.2 -149.6 705.2 -141.6Q705.2 -133.8 699.5 -128.5Q693.8 -123.2 685 -123.2Q676 -123.2 670.3 -128.5Q664.6 -133.8 664.6 -141.6ZM702 -111.6V0H667.8V-111.6Z"/><path class="kirjain" style="--i:7" d="M833.8 -65.2V0H799.8V-60.6Q799.8 -71.8 794 -78Q788.2 -84.2 778.4 -84.2Q768.6 -84.2 762.8 -78Q757 -71.8 757 -60.6V0H722.8V-111.6H757V-96.8Q762.2 -104.2 771 -108.5Q779.8 -112.8 790.8 -112.8Q810.4 -112.8 822.1 -100.1Q833.8 -87.4 833.8 -65.2Z"/><path class="kirjain" style="--i:8" d="M958.2 -47.6H880.8Q881.6 -37.2 887.5 -31.7Q893.4 -26.2 902 -26.2Q914.8 -26.2 919.8 -37H956.2Q953.4 -26 946.1 -17.2Q938.8 -8.4 927.8 -3.4Q916.8 1.6 903.2 1.6Q886.8 1.6 874 -5.4Q861.2 -12.4 854 -25.4Q846.8 -38.4 846.8 -55.8Q846.8 -73.2 853.9 -86.2Q861 -99.2 873.8 -106.2Q886.6 -113.2 903.2 -113.2Q919.4 -113.2 932 -106.4Q944.6 -99.6 951.7 -87Q958.8 -74.4 958.8 -57.6Q958.8 -52.8 958.2 -47.6ZM923.8 -66.6Q923.8 -75.4 917.8 -80.6Q911.8 -85.8 902.8 -85.8Q894.2 -85.8 888.3 -80.8Q882.4 -75.8 881 -66.6Z"/></svg><svg class="sm sm-b" style="--o:31.463%" viewBox="1007 -160 464 224" aria-hidden="true" focusable="false"><path class="kirjain" style="--i:9" d="M1015.2 -113.2Q1027 -113.2 1035.9 -108.4Q1044.8 -103.6 1049.6 -95.8V-111.6H1083.8V0H1049.6V-15.8Q1044.6 -8 1035.7 -3.2Q1026.8 1.6 1015 1.6Q1001.4 1.6 990.2 -5.5Q979 -12.6 972.5 -25.7Q966 -38.8 966 -56Q966 -73.2 972.5 -86.2Q979 -99.2 990.2 -106.2Q1001.4 -113.2 1015.2 -113.2ZM1025.2 -83.4Q1015 -83.4 1007.9 -76.1Q1000.8 -68.8 1000.8 -56Q1000.8 -43.2 1007.9 -35.7Q1015 -28.2 1025.2 -28.2Q1035.4 -28.2 1042.5 -35.6Q1049.6 -43 1049.6 -55.8Q1049.6 -68.6 1042.5 -76Q1035.4 -83.4 1025.2 -83.4Z"/><path class="kirjain" style="--i:10" d="M1173.2 -113.2Q1187 -113.2 1198.2 -106.2Q1209.4 -99.2 1215.9 -86.2Q1222.4 -73.2 1222.4 -56Q1222.4 -38.8 1215.9 -25.7Q1209.4 -12.6 1198.2 -5.5Q1187 1.6 1173.2 1.6Q1161.6 1.6 1152.7 -3.2Q1143.8 -8 1138.8 -15.6V53.2H1104.6V-111.6H1138.8V-95.8Q1143.8 -103.6 1152.6 -108.4Q1161.4 -113.2 1173.2 -113.2ZM1163 -83.4Q1152.8 -83.4 1145.7 -76Q1138.6 -68.6 1138.6 -55.8Q1138.6 -43 1145.7 -35.6Q1152.8 -28.2 1163 -28.2Q1173.2 -28.2 1180.4 -35.7Q1187.6 -43.2 1187.6 -56Q1187.6 -68.8 1180.5 -76.1Q1173.4 -83.4 1163 -83.4Z"/><path class="kirjain" style="--i:11" d="M1305 -113.2Q1318.8 -113.2 1330 -106.2Q1341.2 -99.2 1347.7 -86.2Q1354.2 -73.2 1354.2 -56Q1354.2 -38.8 1347.7 -25.7Q1341.2 -12.6 1330 -5.5Q1318.8 1.6 1305 1.6Q1293.4 1.6 1284.5 -3.2Q1275.6 -8 1270.6 -15.6V53.2H1236.4V-111.6H1270.6V-95.8Q1275.6 -103.6 1284.4 -108.4Q1293.2 -113.2 1305 -113.2ZM1294.8 -83.4Q1284.6 -83.4 1277.5 -76Q1270.4 -68.6 1270.4 -55.8Q1270.4 -43 1277.5 -35.6Q1284.6 -28.2 1294.8 -28.2Q1305 -28.2 1312.2 -35.7Q1319.4 -43.2 1319.4 -56Q1319.4 -68.8 1312.3 -76.1Q1305.2 -83.4 1294.8 -83.4Z"/><path class="kirjain" style="--i:12" d="M1362.2 -36.6H1396Q1396.6 -30.8 1401.4 -27.2Q1406.2 -23.6 1413.2 -23.6Q1419.6 -23.6 1423.1 -26.1Q1426.6 -28.6 1426.6 -32.6Q1426.6 -37.4 1421.6 -39.7Q1416.6 -42 1405.4 -44.8Q1393.4 -47.6 1385.4 -50.7Q1377.4 -53.8 1371.6 -60.5Q1365.8 -67.2 1365.8 -78.6Q1365.8 -88.2 1371.1 -96.1Q1376.4 -104 1386.7 -108.6Q1397 -113.2 1411.2 -113.2Q1432.2 -113.2 1444.3 -102.8Q1456.4 -92.4 1458.2 -75.2H1426.6Q1425.8 -81 1421.5 -84.4Q1417.2 -87.8 1410.2 -87.8Q1404.2 -87.8 1401 -85.5Q1397.8 -83.2 1397.8 -79.2Q1397.8 -74.4 1402.9 -72Q1408 -69.6 1418.8 -67.2Q1431.2 -64 1439 -60.9Q1446.8 -57.8 1452.7 -50.9Q1458.6 -44 1458.8 -32.4Q1458.8 -22.6 1453.3 -14.9Q1447.8 -7.2 1437.5 -2.8Q1427.2 1.6 1413.6 1.6Q1399 1.6 1387.6 -3.4Q1376.2 -8.4 1369.6 -17.1Q1363 -25.8 1362.2 -36.6Z"/></svg><canvas class="kinos" aria-hidden="true"></canvas></span></h1>
+      <p class="iskulause"><span class="fi">Pelejä ja sovelluksia, tehty kotona Suomessa.</span><span class="en">Games and apps, made at home in Finland.</span></p>
+      <a class="nappi kulta" href="#pupsan-joulu"><span class="fi">Tutustu Pupsan Jouluun</span><span class="en">Meet Pupsa's Christmas</span></a>
+    </div>
+    <svg class="harjanne keski" viewBox="0 0 2000 520" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false"><path d="M0 520L0 360L0 360L50 377L100 401L150 421L200 429L250 423L300 414L350 408L400 410L450 415L500 412L550 398L600 376L650 357L700 351L750 360L800 378L850 394L900 400L950 399L1000 399L1050 406L1100 420L1150 433L1200 436L1250 423L1300 400L1350 379L1400 368L1450 369L1500 376L1550 380L1600 376L1650 370L1700 370L1750 382L1800 404L1850 426L1900 437L1950 433L2000 418L2000 520Z" fill="currentColor"/><use href="#kuusi2" x="-43" y="157" width="107" height="215"/><use href="#kuusi0" x="31" y="212" width="93" height="186"/><use href="#kuusi2" x="75" y="198" width="112" height="223"/><use href="#kuusi0" x="72" y="171" width="126" height="252"/><use href="#kuusi0" x="78" y="195" width="114" height="228"/><use href="#kuusi0" x="181" y="254" width="90" height="180"/><use href="#kuusi2" x="295" y="190" width="113" height="227"/><use href="#kuusi2" x="361" y="221" width="99" height="198"/><use href="#kuusi1" x="551" y="180" width="102" height="203"/><use href="#kuusi2" x="627" y="100" width="130" height="260"/><use href="#kuusi1" x="650" y="158" width="100" height="200"/><use href="#kuusi1" x="656" y="136" width="112" height="225"/><use href="#kuusi2" x="773" y="207" width="92" height="185"/><use href="#kuusi2" x="762" y="146" width="124" height="248"/><use href="#kuusi1" x="805" y="155" width="125" height="250"/><use href="#kuusi2" x="840" y="213" width="97" height="194"/><use href="#kuusi2" x="881" y="224" width="92" height="184"/><use href="#kuusi1" x="948" y="178" width="115" height="229"/><use href="#kuusi0" x="995" y="226" width="93" height="187"/><use href="#kuusi1" x="1083" y="259" width="88" height="176"/><use href="#kuusi0" x="1109" y="233" width="105" height="209"/><use href="#kuusi2" x="1102" y="191" width="125" height="251"/><use href="#kuusi0" x="1125" y="271" width="86" height="171"/><use href="#kuusi0" x="1164" y="187" width="125" height="250"/><use href="#kuusi1" x="1246" y="183" width="112" height="224"/><use href="#kuusi1" x="1246" y="160" width="122" height="245"/><use href="#kuusi1" x="1366" y="204" width="86" height="172"/><use href="#kuusi0" x="1370" y="157" width="110" height="219"/><use href="#kuusi1" x="1413" y="201" width="89" height="178"/><use href="#kuusi1" x="1454" y="160" width="112" height="225"/><use href="#kuusi0" x="1491" y="122" width="133" height="265"/><use href="#kuusi2" x="1736" y="224" width="90" height="179"/><use href="#kuusi0" x="1839" y="221" width="111" height="223"/><use href="#kuusi2" x="1881" y="202" width="120" height="239"/></svg>
+    <svg class="harjanne lahi" viewBox="0 0 2000 520" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false"><path d="M0 520L0 441L0 441L50 429L100 417L150 414L200 425L250 445L300 464L350 474L400 473L450 466L500 463L550 466L600 471L650 472L700 462L750 443L800 423L850 414L900 417L950 430L1000 442L1050 448L1100 448L1150 447L1200 453L1250 466L1300 481L1350 488L1400 482L1450 464L1500 445L1550 433L1600 432L1650 436L1700 438L1750 434L1800 426L1850 422L1900 430L1950 448L2000 468L2000 520Z" fill="currentColor"/><use href="#kuusi1" x="30" y="91" width="167" height="333"/><use href="#kuusi1" x="49" y="35" width="194" height="387"/><use href="#kuusi2" x="43" y="9" width="207" height="414"/><use href="#kuusi2" x="94" y="84" width="172" height="345"/><use href="#kuusi0" x="441" y="97" width="188" height="376"/><use href="#kuusi2" x="610" y="54" width="206" height="411"/><use href="#kuusi1" x="652" y="135" width="161" height="322"/><use href="#kuusi0" x="791" y="123" width="150" height="299"/><use href="#kuusi1" x="914" y="63" width="194" height="388"/><use href="#kuusi2" x="962" y="155" width="150" height="300"/><use href="#kuusi1" x="1104" y="135" width="162" height="324"/><use href="#kuusi0" x="1135" y="124" width="171" height="343"/><use href="#kuusi0" x="1144" y="60" width="207" height="413"/><use href="#kuusi0" x="1253" y="96" width="200" height="399"/><use href="#kuusi1" x="1362" y="68" width="200" height="400"/><use href="#kuusi2" x="1564" y="49" width="197" height="395"/><use href="#kuusi1" x="1573" y="57" width="194" height="387"/><use href="#kuusi1" x="1582" y="61" width="192" height="384"/><use href="#kuusi0" x="1835" y="113" width="165" height="331"/><use href="#kuusi0" x="1851" y="90" width="181" height="362"/></svg>
+    <div class="lahi-jatko"></div>
   </div>
+</section>
+
+<section class="peli" id="pupsan-joulu" data-taivas>
+  <div class="peli-sisus">
+    <div class="peli-teksti">
+      <img class="pelilogo fi" src="assets/pupsan-joulu-logo-fi.svg" alt="Pupsan Joulu" width="520" height="298">
+      <img class="pelilogo en" src="assets/pupsan-joulu-logo-en.svg" alt="Pupsa's Christmas" width="520" height="298">
+      <h2><span class="fi">Joulupukin yhdeksän poroa ovat karanneet.</span><span class="en">Santa's nine reindeer have run away.</span></h2>
+      <p class="fi">Pupsa on pieni harmaa luppakorvapupu, joka hyppii joulukoristeelta toiselle yhä korkeammalle. Etsi porot ennen aattoa, sisusta oma mökki ja tapaa kaverit joulukylässä.</p>
+      <p class="en">Pupsa is a little grey bunny with floppy ears who jumps from one Christmas ornament to the next, higher and higher. Find the reindeer before Christmas Eve, decorate your own cabin and meet friends in the Christmas village.</p>
+      <div class="toiminnot">
+        <button class="nappi kulta" type="button" id="avaa-traileri"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 3l12 7-12 7z"/></svg><span class="fi">Katso traileri</span><span class="en">Watch the trailer</span></button>
+        <p class="tila"><span class="fi">Tulossa App Storeen iPhonelle ja Macille. Ilmainen.</span><span class="en">Coming soon to the App Store for iPhone and Mac. Free to play.</span></p>
+      </div>
+    </div>
+    <div class="peli-kuva" data-kallistus>
+      <figure class="puhelin iso">
+        <div class="ruutu"><video muted loop playsinline preload="none" poster="assets/videot/pupsa.webp"><source src="assets/videot/pupsa.mp4" type="video/mp4"></video></div>
+      </figure>
+      <svg class="koriste k1" viewBox="0 0 60 76" aria-hidden="true"><use href="#kuula"/></svg>
+      <svg class="koriste k2" viewBox="0 0 48 52" aria-hidden="true"><use href="#kulkunen"/></svg>
+      <svg class="koriste k3" viewBox="0 0 48 52" aria-hidden="true"><use href="#kulkunen"/></svg>
+      <svg class="koriste k4" viewBox="0 0 60 76" aria-hidden="true"><use href="#kuula"/></svg>
+    </div>
+  </div>
+</section>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+  <symbol id="kuula" viewBox="0 0 60 76"><circle cx="30" cy="8" r="5" fill="none" stroke="#F2B544" stroke-width="3"/><rect x="22" y="11" width="16" height="10" rx="2" fill="#F2B544" stroke="#2A1E2C" stroke-width="2.5"/><circle cx="30" cy="47" r="26" fill="#C8323C" stroke="#2A1E2C" stroke-width="3"/><path d="M6 47a24 24 0 0 0 48 0v-1H6z" fill="#8E1F2C" opacity=".45"/><rect x="5" y="41" width="50" height="10" fill="#F4EFE6"/><ellipse cx="20" cy="31" rx="7" ry="4.5" transform="rotate(-30 20 31)" fill="#fff" opacity=".65"/></symbol>
+  <symbol id="kulkunen" viewBox="0 0 48 52"><path d="M24 4a4 4 0 0 1 4 4v1h-8V8a4 4 0 0 1 4-4z" fill="#F2B544" stroke="#2A1E2C" stroke-width="2.5"/><circle cx="24" cy="28" r="20" fill="#F2B544" stroke="#2A1E2C" stroke-width="3"/><rect x="5" y="26" width="38" height="4" fill="#B97E1F"/><circle cx="24" cy="38" r="4" fill="#2A1E2C"/><ellipse cx="16" cy="18" rx="5" ry="3" transform="rotate(-30 16 18)" fill="#fff" opacity=".7"/></symbol>
+  <symbol id="tahti" viewBox="0 0 60 60"><path d="M30 4l7.6 16.6 18.2 2.1-13.5 12.3 3.7 17.9L30 44l-16 9 3.7-17.9L4.200 22.700l18.200-2.100z" fill="#F2B544" stroke="#2A1E2C" stroke-width="3.500" stroke-linejoin="round"/><path d="M24 22l6-12" stroke="#FFE27A" stroke-width="3" stroke-linecap="round"/></symbol>
+  <symbol id="kruunu" viewBox="0 0 76 54"><path d="M8 48L4 14l18 14L38 4l16 24 18-14-4 34z" fill="#F2B544" stroke="#2A1E2C" stroke-width="3.500" stroke-linejoin="round"/><circle cx="38" cy="36" r="5" fill="#C8323C" stroke="#2A1E2C" stroke-width="2.500"/><path d="M12 42h52" stroke="#B97E1F" stroke-width="3"/></symbol>
+  <symbol id="karkki" viewBox="0 0 60 100"><path d="M18 94V34a14 14 0 0 1 28 0v6" fill="none" stroke="#2A1E2C" stroke-width="20" stroke-linecap="round"/><path d="M18 94V34a14 14 0 0 1 28 0v6" fill="none" stroke="#F4EFE6" stroke-width="13" stroke-linecap="round"/><path d="M18 94V34a14 14 0 0 1 28 0v6" fill="none" stroke="#C8323C" stroke-width="13" stroke-dasharray="11 12"/></symbol>
+</defs></svg>
+
+<section class="maailmat" aria-label="Pupsan Joulu">
+  <div class="maailmat-kiinni">
+    <div class="raita">
+
+      <article class="luku l-hyppy" style="--i:0">
+        <svg class="kelluva" viewBox="0 0 60 76" style="--x:47%;--y:16%;--w:74px;--k:1.5;--r:-8deg" aria-hidden="true"><use href="#kuula"/></svg><svg class="kelluva" viewBox="0 0 48 52" style="--x:8%;--y:74%;--w:50px;--k:0.8;--r:0deg" aria-hidden="true"><use href="#kulkunen"/></svg><svg class="kelluva" viewBox="0 0 60 100" style="--x:88%;--y:70%;--w:92px;--k:2.1;--r:-14deg" aria-hidden="true"><use href="#karkki"/></svg><svg class="kelluva" viewBox="0 0 48 52" style="--x:92%;--y:18%;--w:42px;--k:1.2;--r:0deg" aria-hidden="true"><use href="#kulkunen"/></svg>
+        <div class="luku-teksti">
+          <h3><span class="fi">Hyppää koristeelta toiselle</span><span class="en">Jump from ornament to ornament</span></h3>
+          <p class="fi">Mitä ylemmäs pääset, sitä vaikeammaksi matka muuttuu. Kerää kulkusia, väistä lumiukkoja ja variksia ja lyö oma ennätyksesi.</p>
+          <p class="en">The higher you go, the trickier it gets. Collect jingle bells, dodge snowmen and crows, and beat your own best score.</p>
+        </div>
+        <figure class="puhelin"><div class="ruutu"><video muted loop playsinline preload="none" poster="assets/videot/hyppy.webp"><source src="assets/videot/hyppy.mp4" type="video/mp4"></video></div></figure>
+      </article>
+
+      <article class="luku l-seikkailu" style="--i:1">
+        <svg class="kelluva" viewBox="0 0 60 60" style="--x:44%;--y:20%;--w:62px;--k:1.4;--r:-10deg" aria-hidden="true"><use href="#tahti"/></svg><svg class="kelluva" viewBox="0 0 60 60" style="--x:10%;--y:72%;--w:44px;--k:0.8;--r:12deg" aria-hidden="true"><use href="#tahti"/></svg><svg class="kelluva" viewBox="0 0 60 60" style="--x:90%;--y:74%;--w:74px;--k:2;--r:8deg" aria-hidden="true"><use href="#tahti"/></svg><svg class="kelluva" viewBox="0 0 48 52" style="--x:90%;--y:14%;--w:46px;--k:1.2;--r:0deg" aria-hidden="true"><use href="#kulkunen"/></svg>
+        <div class="luku-teksti">
+          <h3><span class="fi">14 maailmaa, 112 kenttää</span><span class="en">14 worlds, 112 levels</span></h3>
+          <p class="fi">Kerää tähtiä ja avaa uusia maailmoja. Kauempana odottavat tuuli, pimeys ja katoavat alustat.</p>
+          <p class="en">Collect stars to unlock new worlds. Further on, wind, darkness and vanishing platforms await.</p>
+        </div>
+        <figure class="puhelin"><div class="ruutu"><img class="fi" loading="lazy" src="assets/pelikuvat/seikkailu-fi.webp" alt="Seikkailun kenttäkartta" width="660" height="1435"><img class="en" loading="lazy" src="assets/pelikuvat/seikkailu-en.webp" alt="The Adventure level map" width="660" height="1435"></div></figure>
+      </article>
+
+      <article class="luku l-mokki" style="--i:2">
+        <svg class="kelluva" viewBox="0 0 60 60" style="--x:46%;--y:74%;--w:40px;--k:1.1;--r:0deg" aria-hidden="true"><use href="#tahti"/></svg><svg class="kelluva" viewBox="0 0 60 76" style="--x:90%;--y:16%;--w:62px;--k:1.8;--r:10deg" aria-hidden="true"><use href="#kuula"/></svg><svg class="kelluva" viewBox="0 0 48 52" style="--x:8%;--y:18%;--w:42px;--k:0.9;--r:0deg" aria-hidden="true"><use href="#kulkunen"/></svg>
+        <div class="luku-teksti">
+          <h3><span class="fi">Sisusta oma joulumökki</span><span class="en">Decorate your own Christmas cabin</span></h3>
+          <p class="fi">Osta huonekalut kulkusilla ja laajenna taloa kerros ja siipi kerrallaan: sauna, ullakko, tähtitorni ja jäälinna.</p>
+          <p class="en">Buy furniture with bells and grow the house floor by floor and wing by wing: sauna, loft, observatory and ice castle.</p>
+        </div>
+        <figure class="puhelin"><div class="ruutu"><video muted loop playsinline preload="none" poster="assets/videot/mokki.webp"><source src="assets/videot/mokki.mp4" type="video/mp4"></video></div></figure>
+      </article>
+
+      <article class="luku l-kyla" style="--i:3">
+        <svg class="kelluva" viewBox="0 0 60 60" style="--x:90%;--y:20%;--w:56px;--k:1.7;--r:-8deg" aria-hidden="true"><use href="#tahti"/></svg><svg class="kelluva" viewBox="0 0 60 76" style="--x:10%;--y:76%;--w:54px;--k:0.9;--r:-10deg" aria-hidden="true"><use href="#kuula"/></svg><svg class="kelluva" viewBox="0 0 48 52" style="--x:46%;--y:18%;--w:44px;--k:1.3;--r:0deg" aria-hidden="true"><use href="#kulkunen"/></svg>
+        <div class="luku-teksti">
+          <h3><span class="fi">Tapaa kaverit joulukylässä</span><span class="en">Meet friends in the Christmas village</span></h3>
+          <p class="fi">Kylään pääsee vain kyläkoodilla. Lähetä valmiita tervehdyksiä ja lahjoja, vapaata chattia ei ole.</p>
+          <p class="en">Villages are joined only with a private code. Send ready-made greetings and gifts. There is no free chat.</p>
+        </div>
+        <figure class="puhelin"><div class="ruutu"><video muted loop playsinline preload="none" poster="assets/videot/kyla.webp"><source src="assets/videot/kyla.mp4" type="video/mp4"></video></div></figure>
+      </article>
+
+      <article class="luku l-asut" style="--i:4">
+        <svg class="kelluva" viewBox="0 0 76 54" style="--x:44%;--y:18%;--w:92px;--k:1.5;--r:-10deg" aria-hidden="true"><use href="#kruunu"/></svg><svg class="kelluva" viewBox="0 0 60 60" style="--x:90%;--y:72%;--w:48px;--k:1.8;--r:10deg" aria-hidden="true"><use href="#tahti"/></svg><svg class="kelluva" viewBox="0 0 76 54" style="--x:9%;--y:76%;--w:62px;--k:0.8;--r:8deg" aria-hidden="true"><use href="#kruunu"/></svg>
+        <div class="luku-teksti">
+          <h3><span class="fi">Pue pupusi omaan tyyliin</span><span class="en">Dress your bunny your way</span></h3>
+          <p class="fi">Hatut, huivit, kengät ja paljon muuta. Useimmat asut ansaitaan pelaamalla tai joulukalenterista.</p>
+          <p class="en">Hats, scarves, shoes and more. Most outfits are earned by playing or from the advent calendar.</p>
+        </div>
+        <figure class="puhelin"><div class="ruutu"><video muted loop playsinline preload="none" poster="assets/videot/asut.webp"><source src="assets/videot/asut.mp4" type="video/mp4"></video></div></figure>
+      </article>
+
+      <article class="luku l-kalenteri" style="--i:5">
+        <svg class="kelluva" viewBox="0 0 48 52" style="--x:46%;--y:76%;--w:58px;--k:1.2;--r:0deg" aria-hidden="true"><use href="#kulkunen"/></svg><svg class="kelluva" viewBox="0 0 60 60" style="--x:91%;--y:18%;--w:60px;--k:1.8;--r:-12deg" aria-hidden="true"><use href="#tahti"/></svg><svg class="kelluva" viewBox="0 0 60 76" style="--x:9%;--y:18%;--w:52px;--k:0.9;--r:8deg" aria-hidden="true"><use href="#kuula"/></svg>
+        <div class="luku-teksti">
+          <h3><span class="fi">Uusi luukku joka päivä 1.–24.12.</span><span class="en">A new door every day, Dec 1–24</span></h3>
+          <p class="fi">Tarina etenee ja erikoisradat aukeavat.</p>
+          <p class="en">The story moves on and special courses unlock.</p>
+        </div>
+        <figure class="puhelin"><div class="ruutu"><img class="fi" loading="lazy" src="assets/pelikuvat/kalenteri-fi.webp" alt="Joulukalenterin luukut" width="660" height="1435"><img class="en" loading="lazy" src="assets/pelikuvat/kalenteri-en.webp" alt="The advent calendar doors" width="660" height="1435"></div></figure>
+      </article>
+
+    </div>
+    <div class="koristenaru" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  </div>
+</section>
+
+<section class="tapahtumat" data-taivas>
+  <div class="tapahtuma" id="kalenterilaskuri">
+    <h2 id="kalenteriteksti"><span class="fi">Joulukalenteri aukeaa 1.12.</span><span class="en">The advent calendar opens on December 1.</span></h2>
+    <div class="luukut" id="luukut" aria-hidden="true"></div>
+  </div>
+  <div class="tapahtuma kilpailu" id="kilpailu">
+    <h2><span class="fi">Keksi Pupsalle asu</span><span class="en">Design an outfit for Pupsa</span></h2>
+    <p class="fi">Kommentoi ideasi TikTokin kilpailuvideoon. Eniten tykkäyksiä saanut idea lisätään peliin puettavaksi asuksi. Kilpailuaikaa on 20.11.2026 klo 21 asti.</p>
+    <p class="en">Comment your idea on the contest video on TikTok. The most-liked idea is added to the game as a wearable item. The contest ends on November 20, 2026 at 21:00 Finnish time.</p>
+    <div class="toiminnot">
+      <a class="nappi kulta" href="https://www.tiktok.com/@polarpineapps"><span class="fi">Osallistu TikTokissa</span><span class="en">Enter on TikTok</span></a>
+      <a class="tekstilinkki" href="pupsan-joulu/contest.html"><span class="fi">Säännöt englanniksi</span><span class="en">Official rules</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="reilu">
+  <svg class="kinosreuna" viewBox="0 0 1600 64" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0 64L0 44Q116 -23 232 47Q377 -22 522 49Q584 -8 647 49Q765 -31 884 38Q986 3 1088 44Q1200 15 1312 39Q1397 -32 1482 47Q1556 -25 1631 38L1631 64Z" fill="currentColor"/></svg>
+  <div class="reilu-sisus">
+    <div class="reilu-otsikko">
+      <h2><span class="fi">Reilu peli koko perheelle</span><span class="en">A fair game for the whole family</span></h2>
+      <p class="fi">Pupsan Joulu on tehty 9-vuotiaille ja sitä vanhemmille.</p>
+      <p class="en">Pupsa's Christmas is made for players aged 9 and up.</p>
+      <p class="reilu-linkit"><a href="pupsan-joulu/" data-keep-lang><span class="fi">Tuki ja usein kysytyt kysymykset</span><span class="en">Support and FAQ</span></a><a href="pupsan-joulu/privacy.html" data-keep-lang><span class="fi">Tietosuojaseloste</span><span class="en">Privacy policy</span></a></p>
+    </div>
+    <ul class="lupaukset">
+      <li><strong><span class="fi">Kulkusia ei voi ostaa rahalla.</span><span class="en">Bells can't be bought with money.</span></strong><span class="fi">Pelin raha ansaitaan pelaamalla.</span><span class="en">The game's currency is earned by playing.</span></li>
+      <li><strong><span class="fi">Ei yllätyspaketteja.</span><span class="en">No loot boxes.</span></strong><span class="fi">Kertaostokset ovat vapaaehtoisia, ja ostetut asut ovat pelkkää ulkonäköä.</span><span class="en">One-time purchases are optional, and purchased outfits are cosmetic only.</span></li>
+      <li><strong><span class="fi">Mainos vain, kun pelaaja valitsee.</span><span class="en">Ads only when the player chooses.</span></strong><span class="fi">Mainokset ovat lapsille sopivia eivätkä personoituja.</span><span class="en">Ads are kid-friendly and not personalised.</span></li>
+      <li><strong><span class="fi">Ei vapaata chattia.</span><span class="en">No free chat.</span></strong><span class="fi">Pelaajat lähettävät vain valmiita tervehdyksiä, ja kyliin pääsee vain koodilla.</span><span class="en">Players send ready-made greetings, and villages are joined by code only.</span></li>
+    </ul>
+  </div>
+  <svg class="harjanne raja" viewBox="0 0 2000 520" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false"><path d="M0 520L0 441L0 441L50 434L100 433L150 434L200 433L250 426L300 415L350 405L400 404L450 411L500 424L550 436L600 441L650 440L700 438L750 439L800 444L850 450L900 450L950 441L1000 427L1050 414L1100 408L1150 410L1200 417L1250 423L1300 424L1350 422L1400 422L1450 429L1500 441L1550 452L1600 457L1650 452L1700 441L1750 430L1800 424L1850 423L1900 425L1950 423L2000 417L2000 520Z" fill="currentColor"/><use href="#kuusi1" x="-69" y="265" width="93" height="187"/><use href="#kuusi1" x="-39" y="252" width="98" height="195"/><use href="#kuusi1" x="-20" y="280" width="83" height="166"/><use href="#kuusi0" x="41" y="318" width="62" height="124"/><use href="#kuusi1" x="223" y="279" width="76" height="152"/><use href="#kuusi1" x="229" y="293" width="69" height="138"/><use href="#kuusi2" x="254" y="239" width="92" height="184"/><use href="#kuusi1" x="298" y="217" width="99" height="197"/><use href="#kuusi0" x="316" y="255" width="79" height="158"/><use href="#kuusi2" x="330" y="266" width="73" height="147"/><use href="#kuusi2" x="426" y="275" width="74" height="148"/><use href="#kuusi2" x="425" y="247" width="89" height="177"/><use href="#kuusi0" x="457" y="270" width="81" height="162"/><use href="#kuusi2" x="617" y="240" width="104" height="207"/><use href="#kuusi2" x="622" y="246" width="101" height="201"/><use href="#kuusi2" x="668" y="292" width="77" height="154"/><use href="#kuusi0" x="794" y="227" width="116" height="231"/><use href="#kuusi0" x="1167" y="198" width="115" height="230"/><use href="#kuusi2" x="1237" y="250" width="91" height="181"/><use href="#kuusi2" x="1257" y="202" width="115" height="229"/><use href="#kuusi0" x="1313" y="197" width="116" height="233"/><use href="#kuusi0" x="1424" y="285" width="78" height="155"/><use href="#kuusi1" x="1450" y="204" width="124" height="248"/><use href="#kuusi0" x="1576" y="273" width="95" height="190"/><use href="#kuusi2" x="1603" y="325" width="68" height="137"/><use href="#kuusi2" x="1739" y="303" width="66" height="132"/><use href="#kuusi1" x="1846" y="255" width="89" height="177"/><use href="#kuusi1" x="1916" y="255" width="88" height="175"/><use href="#kuusi2" x="1925" y="269" width="80" height="161"/><use href="#kuusi2" x="1945" y="212" width="107" height="214"/></svg>
+</section>
+
+<section class="studio" id="studio" data-taivas>
+  <img src="assets/polarpineapps-merkki.svg" alt="" width="360" height="360" loading="lazy">
+  <div>
+    <h2><span class="fi">Pupsa on oikea pehmopupu.</span><span class="en">Pupsa is a real plush bunny.</span></h2>
+    <p class="fi">Polar Pine Apps on nimi, jolla julkaisemme perheenä tekemiämme sovelluksia ja pelejä. Ensimmäisen pelimme päähenkilö on meidän oma harmaa luppakorvainen pehmopupumme.</p>
+    <p class="en">Polar Pine Apps is the name we use for the apps and games we build as a family. The star of our first game is our own grey, floppy-eared plush bunny.</p>
+  </div>
+</section>
 </main>
 
-<footer>
-  <div class="wrap">
-    <span>© 2026 Polar Pine Apps</span>
+<footer class="ala" id="yhteys" data-taivas>
+  <div class="ala-sisus">
+    <h2><span class="fi">Yhteystiedot</span><span class="en">Contact</span></h2>
+    <a class="sahkoposti" href="mailto:polarpineapps@gmail.com">polarpineapps@gmail.com</a>
+    <nav aria-label="Footer">
+      <a href="https://www.tiktok.com/@polarpineapps">TikTok</a>
+      <a href="pupsan-joulu/" data-keep-lang><span class="fi">Tuki</span><span class="en">Support</span></a>
+      <a href="pupsan-joulu/privacy.html" data-keep-lang><span class="fi">Tietosuoja</span><span class="en">Privacy</span></a>
+    </nav>
   </div>
+  <svg class="harjanne jalka" viewBox="0 0 2000 520" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false"><path d="M0 520L0 398L0 398L50 391L100 377L150 366L200 364L250 376L300 396L350 414L400 423L450 421L500 415L550 413L600 417L650 423L700 423L750 411L800 391L850 372L900 364L950 369L1000 381L1050 393L1100 397L1150 396L1200 396L1250 403L1300 418L1350 433L1400 438L1450 431L1500 413L1550 394L1600 384L1650 383L1700 387L1750 388L1800 382L1850 374L1900 371L1950 380L2000 399L2000 520Z" fill="currentColor"/><use href="#kuusi2" x="-13" y="210" width="95" height="191"/><use href="#kuusi1" x="11" y="146" width="123" height="246"/><use href="#kuusi0" x="184" y="150" width="116" height="233"/><use href="#kuusi0" x="241" y="147" width="129" height="259"/><use href="#kuusi1" x="238" y="135" width="136" height="271"/><use href="#kuusi1" x="362" y="172" width="129" height="258"/><use href="#kuusi1" x="441" y="216" width="104" height="208"/><use href="#kuusi0" x="465" y="171" width="126" height="251"/><use href="#kuusi0" x="537" y="139" width="144" height="287"/><use href="#kuusi2" x="649" y="247" width="92" height="184"/><use href="#kuusi0" x="812" y="187" width="96" height="191"/><use href="#kuusi1" x="823" y="101" width="136" height="273"/><use href="#kuusi1" x="934" y="142" width="123" height="246"/><use href="#kuusi1" x="970" y="186" width="104" height="208"/><use href="#kuusi0" x="1222" y="190" width="115" height="230"/><use href="#kuusi2" x="1256" y="224" width="102" height="204"/><use href="#kuusi1" x="1356" y="225" width="110" height="220"/><use href="#kuusi1" x="1380" y="180" width="129" height="259"/><use href="#kuusi1" x="1405" y="230" width="103" height="207"/><use href="#kuusi0" x="1401" y="138" width="146" height="292"/><use href="#kuusi2" x="1424" y="189" width="119" height="238"/><use href="#kuusi2" x="1657" y="179" width="108" height="216"/><use href="#kuusi0" x="1711" y="135" width="129" height="258"/><use href="#kuusi0" x="1815" y="154" width="113" height="227"/><use href="#kuusi2" x="1909" y="178" width="108" height="216"/><use href="#kuusi1" x="1937" y="177" width="114" height="228"/></svg>
+  <p class="copy">© 2026 Polar Pine Apps</p>
 </footer>
+
+<dialog id="traileri" aria-label="Trailer">
+  <button class="sulje" type="button" aria-label="Close"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 4l12 12M16 4L4 16"/></svg></button>
+  <video controls playsinline preload="none" poster="assets/videot/traileri.webp"><source src="assets/videot/traileri.mp4" type="video/mp4"></video>
+</dialog>
+
+<script src="assets/etusivu.js" defer></script>
 </body>
 </html>

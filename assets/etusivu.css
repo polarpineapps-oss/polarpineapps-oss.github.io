@@ -1,0 +1,219 @@
+/* Etusivu: napayö, revontulet ja sanamerkille satava lumi */
+.etusivu { background: linear-gradient(#0a1533, var(--syvayo)) fixed; overflow-x: clip; }
+#taivas, #lumi { position: fixed; inset: 0; width: 100%; height: 100%; pointer-events: none; max-width: none; }
+#taivas { z-index: 0; }
+#lumi { z-index: 40; }
+main, .ala, .yla { position: relative; z-index: 1; }
+
+/* ---------- yläpalkki ---------- */
+.yla {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 14px clamp(16px, 3vw, 36px);
+  transition: background .3s, box-shadow .3s;
+}
+.yla.kiinni { background: rgba(6, 11, 28, .78); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); box-shadow: 0 1px 0 var(--viiva); }
+.yla .brand { color: #fff; }
+.yla nav { display: flex; gap: clamp(14px, 2.4vw, 32px); margin-left: auto; }
+.yla nav a { color: var(--jaa); text-decoration: none; font-weight: 500; font-size: .94rem; }
+.yla nav a:hover { color: var(--kulta-vaalea); }
+
+/* ---------- napit: pelin painettava kultanappi ---------- */
+.nappi {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 58px; padding: 12px 30px;
+  font: 800 1.2rem/1.1 "Grandstander", "Poppins", sans-serif; color: var(--muste); text-decoration: none;
+  background: linear-gradient(#FFD25E, #F2B544);
+  border: 3px solid var(--muste); border-radius: 16px;
+  box-shadow: 0 6px 0 var(--muste), 0 14px 30px rgba(255, 181, 46, .28);
+  cursor: pointer; transition: transform .12s, box-shadow .12s;
+}
+.nappi svg { width: 18px; height: 18px; fill: currentColor; }
+.nappi:hover { color: var(--muste); transform: translateY(-2px); box-shadow: 0 8px 0 var(--muste), 0 18px 36px rgba(255, 181, 46, .4); }
+.nappi:active { transform: translateY(5px); box-shadow: 0 1px 0 var(--muste); }
+
+/* ---------- sankari ---------- */
+.sankari { height: 175svh; --p: 0; --hx: 0; --hy: 0; }
+.sankari-kiinni { position: sticky; top: 0; height: 100svh; min-height: 560px; overflow: hidden; background: transparent; }
+html:not(.taivas-ok) .sankari-kiinni { background: radial-gradient(90% 60% at 45% 30%, rgba(44, 201, 164, .32), transparent 70%), radial-gradient(70% 50% at 75% 22%, rgba(58, 139, 255, .3), transparent 70%), linear-gradient(var(--yo), #0a1533); }
+
+.sankari-sisus {
+  position: absolute; inset: 0; z-index: 5;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+  padding: 76px clamp(16px, 4vw, 48px) 15vh;
+  transform: translate3d(calc(var(--hx) * -8px), calc(var(--p) * -26vh + var(--hy) * -5px), 0);
+  opacity: calc(1 - var(--p) * 1.25);
+}
+.sankari-merkki { width: clamp(130px, 25vh, 280px); height: auto; margin-bottom: -2vh; filter: drop-shadow(0 0 40px rgba(44, 201, 164, .45)); }
+h1 { margin: 0; width: 100%; font-size: inherit; line-height: 1; }
+.sanamerkki { position: relative; display: flex; flex-wrap: nowrap; justify-content: center; align-items: flex-start; width: min(100%, 1480px); margin: 0 auto; }
+.sm { overflow: visible; height: auto; }
+.sm-a { flex: 0 0 var(--o); width: var(--o); fill: #fff; }
+.sm-b { flex: 0 0 var(--o); width: var(--o); fill: var(--kulta); }
+.kirjain { transform-box: fill-box; }
+.kinos { position: absolute; left: 0; top: -40px; pointer-events: none; }
+.iskulause { margin: clamp(10px, 2vh, 22px) 0 clamp(18px, 3vh, 30px); font-size: clamp(1.02rem, 1.7vw, 1.4rem); font-weight: 500; color: #fff; text-shadow: 0 1px 14px rgba(6, 11, 28, .8); }
+
+/* avaus: tähti, merkki ja kirjaimet nousevat kerran */
+html.js:not(.levossa) .sankari-merkki { animation: nousu 1.1s cubic-bezier(.2, .9, .25, 1.15) both .1s; }
+html.js:not(.levossa) .kirjain { animation: kirjain .85s cubic-bezier(.2, .9, .25, 1.2) both; animation-delay: calc(.32s + var(--i) * 38ms); }
+html.js:not(.levossa) .iskulause { animation: hiipuu .8s ease both 1.05s; }
+html.js:not(.levossa) .sankari-sisus .nappi { animation: hiipuu .8s ease both 1.25s; }
+@keyframes nousu { from { opacity: 0; transform: translateY(46px) scale(.8); } }
+@keyframes kirjain { from { opacity: 0; transform: translateY(60%) rotate(5deg); } }
+@keyframes hiipuu { from { opacity: 0; transform: translateY(14px); } }
+
+/* kuusiharjanteet: mitä lähempänä, sitä nopeammin nousevat */
+.harjanne { position: absolute; left: -3%; width: 106%; max-width: none; bottom: 0; height: 52vh; min-height: 300px; pointer-events: none; }
+.kauko { color: #162c58; --lumi-vari: #32508a; z-index: 1; transform: translate3d(calc(var(--hx) * -7px), calc(var(--p) * -5vh), 0); }
+.keski { color: #0e2146; --lumi-vari: #3b5d99; z-index: 3; transform: translate3d(calc(var(--hx) * -16px), calc(var(--p) * -24vh + 12vh), 0); }
+.lahi { color: var(--metsa); --lumi-vari: #24406f; z-index: 4; height: 62vh; transform: translate3d(calc(var(--hx) * -30px), calc(var(--p) * -84vh + 36vh), 0); }
+.lahi-jatko { position: absolute; left: 0; right: 0; top: 100%; height: 100vh; z-index: 4; background: var(--metsa); transform: translate3d(0, calc(var(--p) * -84vh + 36vh), 0); }
+
+/* ---------- peli ---------- */
+.peli { position: relative; padding: 40px clamp(16px, 5vw, 72px) clamp(70px, 10vh, 130px); background: linear-gradient(var(--metsa) 0, rgba(7, 16, 38, .52) 44%, rgba(7, 16, 38, .35) 80%, rgba(7, 16, 38, .9)); }
+.peli-sisus { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: clamp(28px, 5vw, 80px); align-items: center; max-width: 1280px; margin: 0 auto; }
+.pelilogo { width: min(100%, 460px); height: auto; margin: 0 0 18px -10px; }
+.peli h2 { margin: 0 0 18px; color: #fff; font: 800 clamp(2.3rem, 5.2vw, 4.4rem)/1.04 "Poppins", sans-serif; letter-spacing: -.035em; max-width: 13em; text-wrap: balance; }
+.peli-teksti > p { max-width: 34em; font-size: 1.12rem; margin: 0 0 30px; color: var(--jaa); }
+.toiminnot { display: flex; flex-wrap: wrap; align-items: center; gap: 18px 26px; }
+.tila { margin: 0; flex: 1 1 15em; max-width: 19em; font-size: .94rem; line-height: 1.45; color: var(--jaa-himmea); }
+
+.peli-kuva { position: relative; perspective: 1100px; justify-self: center; --rx: 0deg; --ry: 0deg; padding: 24px 40px; }
+.puhelin {
+  --r: 44px;
+  position: relative; margin: 0; width: min(clamp(236px, 25vw, 330px), 36svh); aspect-ratio: 1206 / 2622; flex: none;
+  padding: 9px; border-radius: var(--r); background: linear-gradient(145deg, #2c3a5e, #0a1128 42%, #1c2846);
+  box-shadow: 0 0 0 1px rgba(234, 246, 255, .22), 0 30px 70px rgba(2, 5, 16, .65), 0 0 90px -10px var(--hehku, rgba(44, 201, 164, .4));
+}
+.puhelin.iso { transform: rotateY(var(--ry)) rotateX(var(--rx)) rotateZ(2.4deg); transition: transform .25s ease-out; transform-style: preserve-3d; }
+.ruutu { position: relative; width: 100%; height: 100%; overflow: hidden; border-radius: calc(var(--r) - 9px); background: #1B2A4A; }
+.ruutu::after { content: ""; position: absolute; top: 9px; left: 50%; width: 29%; height: 19px; margin-left: -14.5%; border-radius: 12px; background: #04060e; }
+.ruutu video, .ruutu img { width: 100%; height: 100%; object-fit: cover; }
+.koriste { position: absolute; z-index: 2; pointer-events: none; filter: drop-shadow(0 12px 16px rgba(2, 5, 16, .5)); translate: 0 calc(var(--syv, 0) * var(--peli-s, 0) * 1px); }
+.k1 { width: 84px; left: -6px; top: 15%; --syv: -70; rotate: -9deg; }
+.k2 { width: 56px; right: 2px; top: 8%; --syv: -130; }
+.k3 { width: 44px; left: 12%; bottom: 7%; --syv: -40; }
+.k4 { width: 62px; right: -4px; bottom: 22%; --syv: -100; rotate: 12deg; }
+
+/* ---------- pelin luvut: vaakasuora kulku työpöydällä ---------- */
+.luku { position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; gap: clamp(32px, 7vw, 120px); }
+.luku-teksti { max-width: 34rem; position: relative; z-index: 1; }
+.luku h3 {
+  margin: 0 0 18px; color: var(--lumi);
+  font: 900 clamp(2.4rem, 5vw, 4.6rem)/1.02 "Grandstander", "Poppins", sans-serif; letter-spacing: -.01em; text-wrap: balance;
+  -webkit-text-stroke: 8px var(--muste); paint-order: stroke fill;
+  filter: drop-shadow(3px 6px 0 var(--muste));
+}
+.luku p { margin: 0; font-size: 1.16rem; color: #fff; max-width: 30em; }
+.luku .puhelin { width: auto; height: min(78svh, 760px); }
+.luku { --valo: rgba(95, 211, 166, .3); }
+.l-hyppy { --valo: rgba(95, 211, 166, .34); --hehku: rgba(95, 211, 166, .55); --pohja: #24386a; }
+.l-seikkailu { --valo: rgba(242, 181, 68, .3); --hehku: rgba(242, 181, 68, .5); --pohja: #155363; }
+.l-mokki { --valo: rgba(255, 140, 40, .55); --hehku: rgba(255, 140, 40, .7); --pohja: #6e2d10; }
+.l-kyla { --valo: rgba(160, 190, 255, .34); --hehku: rgba(160, 190, 255, .55); --pohja: #2b4180; }
+.l-asut { --valo: rgba(95, 211, 166, .36); --hehku: rgba(95, 211, 166, .55); --pohja: #1f5f4c; }
+.l-kalenteri { --valo: rgba(255, 210, 94, .36); --hehku: rgba(255, 210, 94, .6); --pohja: #93202e; }
+.luku::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(44% 66% at 69% 50%, var(--valo), transparent 72%); }
+.luku { background-color: var(--pohja); }
+.kelluva { position: absolute; left: var(--x); top: var(--y); width: var(--w); height: auto; pointer-events: none; rotate: var(--r); translate: calc((var(--vs, 0) - var(--i)) * var(--k) * -130px) 0; filter: drop-shadow(0 10px 12px rgba(2, 5, 16, .45)); }
+
+.koristenaru { display: none; }
+
+@media (min-width: 861px) {
+  html.vaaka .maailmat { height: 620svh; }
+  html.vaaka .maailmat-kiinni { position: sticky; top: 0; height: 100svh; overflow: hidden; }
+  html.vaaka .raita { display: flex; width: 600%; height: 100%; will-change: transform; background: linear-gradient(90deg, #24386a 6%, #0f1a36 16.6%, #155363 25%, #0f1a36 33.3%, #6e2d10 41.6%, #0f1a36 50%, #2b4180 58.3%, #0f1a36 66.6%, #1f5f4c 75%, #0f1a36 83.3%, #93202e 94%); }
+  html.vaaka .luku { flex: 0 0 calc(100% / 6); height: 100%; padding: 76px clamp(32px, 6vw, 96px) 64px; background-color: transparent; }
+  html.vaaka .koristenaru {
+    display: flex; justify-content: space-between; position: absolute; left: 50%; bottom: 22px; width: min(420px, 50vw); margin-left: min(-210px, -25vw); padding: 0 2px;
+    background: linear-gradient(transparent 6px, rgba(234, 246, 255, .4) 6px, rgba(234, 246, 255, .4) 8px, transparent 8px);
+  }
+  html.vaaka .koristenaru i { width: 14px; height: 14px; border-radius: 50%; background: #39486f; box-shadow: inset 0 0 0 2px rgba(234, 246, 255, .4); transition: background .25s, box-shadow .25s, transform .25s; }
+  html.vaaka .koristenaru i.tama { background: var(--kulta); box-shadow: 0 0 16px 3px rgba(255, 181, 46, .75); transform: scale(1.3); }
+}
+@media (max-width: 860px) { .kelluva { display: none; } }
+html:not(.vaaka) .luku { padding: 72px clamp(16px, 6vw, 96px); min-height: 92svh; }
+@media (max-width: 860px) {
+  .luku { flex-direction: column; gap: 34px; text-align: center; min-height: 0 !important; padding-top: 64px !important; padding-bottom: 72px !important; }
+  .luku p { margin: 0 auto; }
+  .luku .puhelin { height: auto; width: min(66vw, 300px); }
+}
+
+/* ---------- tapahtumat ---------- */
+.tapahtumat { position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(40px, 7vw, 110px); padding: clamp(80px, 13vh, 150px) clamp(16px, 6vw, 96px); background: rgba(6, 11, 28, .58); align-items: start; }
+.tapahtuma { max-width: 600px; justify-self: center; width: 100%; }
+.tapahtuma h2 { margin: 0 0 22px; color: #fff; font: 800 clamp(2rem, 3.8vw, 3.3rem)/1.08 "Poppins", sans-serif; letter-spacing: -.03em; text-wrap: balance; }
+.tapahtuma p { font-size: 1.08rem; margin: 0 0 26px; }
+.luukut { display: grid; grid-template-columns: repeat(8, 1fr); gap: 7px; max-width: 480px; }
+.luukut i { display: grid; place-items: center; aspect-ratio: 1; border-radius: 8px; font: 900 clamp(.86rem, 1.5vw, 1.15rem)/1 "Grandstander", sans-serif; font-style: normal; color: var(--lumi); background: #8E1F2C; box-shadow: inset 0 0 0 2px var(--muste), 0 3px 0 var(--muste); }
+.luukut i:nth-child(3n) { background: #2F5D4A; }
+.luukut i:nth-child(4n+1) { background: #1B2A4A; color: var(--kulta-vaalea); }
+.luukut i:nth-child(7n) { background: var(--lumi); color: var(--karpalo); }
+.luukut i.auki { background: var(--kulta); color: var(--muste); box-shadow: inset 0 0 0 2px var(--muste), 0 0 16px rgba(255, 181, 46, .75); }
+.tekstilinkki { font-weight: 500; }
+
+/* ---------- reilu peli: paperinen, valoisa väli ---------- */
+.reilu { position: relative; background: var(--lumi); color: var(--muste); padding: clamp(84px, 13vh, 150px) clamp(16px, 6vw, 96px) clamp(210px, 30vh, 320px); }
+.kinosreuna { position: absolute; left: 0; bottom: calc(100% - 1px); width: 100%; height: 64px; color: var(--lumi); max-width: none; }
+.reilu-sisus { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(32px, 6vw, 90px); max-width: 1240px; margin: 0 auto; }
+.reilu h2 { margin: 0 0 16px; font: 900 clamp(2.5rem, 5vw, 4.4rem)/1.02 "Grandstander", "Poppins", sans-serif; color: var(--karpalo); text-wrap: balance; }
+.reilu-otsikko p { margin: 0; font-size: 1.08rem; color: #605357; }
+.lupaukset { list-style: none; margin: 0; padding: 0; }
+.lupaukset li { margin: 0; padding: 20px 0; border-top: 2px dashed rgba(42, 30, 44, .22); font-size: 1.02rem; color: #4a3f47; }
+.lupaukset li:first-child { border-top: 0; padding-top: 4px; }
+.lupaukset strong { display: block; color: var(--muste); font: 800 clamp(1.3rem, 2.3vw, 1.75rem)/1.2 "Grandstander", "Poppins", sans-serif; margin-bottom: 4px; }
+.reilu-otsikko p.reilu-linkit { display: flex; flex-wrap: wrap; gap: 8px 26px; margin: 22px 0 0; font-weight: 500; font-size: 1rem; }
+.raja { color: var(--metsa); --lumi-vari: #3a5a8f; height: 230px; min-height: 0; left: 0; width: 100%; }
+.reilu-linkit a { color: #1f6b54; }
+.reilu-linkit a:hover { color: var(--karpalo); }
+
+/* ---------- studio ---------- */
+.studio { display: flex; align-items: center; justify-content: center; gap: clamp(28px, 6vw, 96px); padding: clamp(90px, 15vh, 170px) clamp(16px, 6vw, 96px); background: linear-gradient(var(--metsa), rgba(6, 11, 28, .44) 60%); }
+.studio img { width: clamp(180px, 25vw, 340px); height: auto; flex: none; filter: drop-shadow(0 0 60px rgba(44, 201, 164, .4)); }
+.studio > div { max-width: 40rem; }
+.studio h2 { margin: 0 0 16px; color: #fff; font: 800 clamp(2.3rem, 5vw, 4.2rem)/1.05 "Poppins", sans-serif; letter-spacing: -.035em; text-wrap: balance; }
+.studio p { margin: 0; font-size: 1.14rem; }
+
+/* ---------- alatunniste ---------- */
+.ala { position: relative; overflow: hidden; border: 0; padding: clamp(60px, 11vh, 120px) clamp(16px, 6vw, 96px) 0; min-height: 76vh; color: var(--jaa); font-size: 1rem; display: flex; flex-direction: column; background: linear-gradient(rgba(6, 11, 28, .44), transparent 40%); }
+.ala-sisus { position: relative; z-index: 2; text-align: center; }
+.ala h2 { margin: 0 0 6px; font: 500 1.1rem/1.3 "Poppins", sans-serif; color: var(--jaa); }
+.sahkoposti { display: inline-block; color: #fff; text-decoration: none; font: 800 clamp(1.5rem, 6.4vw, 5.2rem)/1.15 "Poppins", sans-serif; letter-spacing: -.04em; }
+.sahkoposti:hover { color: var(--kulta-vaalea); }
+.ala nav { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px 30px; margin-top: 22px; font-weight: 500; }
+.ala nav a { color: var(--jaa); }
+.jalka { position: absolute; color: var(--metsa); --lumi-vari: #24406f; height: 42vh; z-index: 1; }
+.copy { position: relative; z-index: 2; margin: auto 0 0; padding: 0 0 18px; text-align: center; font-size: .86rem; color: var(--jaa-himmea); }
+
+/* ---------- traileri ---------- */
+dialog { padding: 0; border: 0; background: transparent; max-width: none; max-height: none; overflow: visible; margin: auto; }
+dialog::backdrop { background: rgba(3, 6, 18, .86); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+dialog video { height: min(90svh, 1000px); width: auto; max-width: 94vw; aspect-ratio: 9 / 16; border-radius: 22px; background: #000; box-shadow: 0 0 0 1px rgba(234, 246, 255, .2), 0 0 120px rgba(44, 201, 164, .25); }
+.sulje { position: absolute; top: 10px; right: 10px; z-index: 2; width: 44px; height: 44px; border-radius: 50%; background: var(--karpalo); border: 3px solid var(--muste); cursor: pointer; display: grid; place-items: center; }
+.sulje svg { width: 18px; height: 18px; fill: none; stroke: #fff; stroke-width: 3; stroke-linecap: round; }
+
+/* ---------- kapeat näytöt ---------- */
+@media (max-width: 860px) {
+  .yla nav { display: none; }
+  .yla .langs { margin-left: auto; }
+  .peli-sisus, .reilu-sisus, .tapahtumat { grid-template-columns: minmax(0, 1fr); }
+  .peli-teksti { text-align: left; }
+  .peli-kuva { padding: 12px 36px; }
+  .studio { flex-direction: column; text-align: center; }
+}
+@media (max-width: 700px) {
+  .sanamerkki { flex-wrap: wrap; width: min(100%, 560px); }
+  .sm-a { width: 100%; }
+  .sm-b { width: 46%; margin-top: -3.5%; }
+  .sankari-sisus { padding-bottom: 20vh; }
+  .nappi { font-size: 1.1rem; padding: 12px 24px; min-height: 56px; }
+  .brand span { font-size: .95rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sankari { height: 100svh; }
+  .kirjain, .sankari-merkki, .iskulause, .sankari-sisus .nappi { animation: none !important; }
+  .puhelin.iso { transition: none; }
+  .nappi { transition: none; }
+}
